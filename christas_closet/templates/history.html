@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Rating History{% endblock %}
+
+{% block content %}
+<div class="intro">
+  <h1>Your Outfit Rating History</h1>
+  <p class="tagline">A look back at what you've loved.</p>
+</div>
+
+{% if entries %}
+  <div class="card">
+    <table class="history-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Activity</th>
+          <th>Outfit</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for entry in entries %}
+        <tr>
+          <td>{{ entry.timestamp }}</td>
+          <td>{{ entry.activity }}</td>
+          <td>{{ entry.outfit_display }}</td>
+          <td>
+            {% for i in range(0, entry.rating|int) %}
+              &#9733;
+            {% endfor %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <p>You haven't rated any outfits yet.</p>
+{% endif %}
+
+<div class="history-link">
+  <a href="/">Back Home</a>
+</div>
+{% endblock %}

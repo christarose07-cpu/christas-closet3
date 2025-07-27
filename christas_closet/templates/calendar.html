@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Events{% endblock %}
+
+{% block content %}
+<div class="intro">
+  <h1>📅 Event Calendar</h1>
+  <p class="tagline">Track upcoming events and get outfit suggestions ahead of time.</p>
+</div>
+
+<div class="card">
+  <h2>Add New Event</h2>
+  <form action="/calendar/add_event" method="get" class="form-section">
+    <input type="text" name="name" placeholder="Event Name" required />
+    <input type="date" name="date" required />
+    <input type="time" name="time" required />
+    <select name="style" required>
+      <option value="Casual">Casual</option>
+      <option value="Work">Work</option>
+      <option value="Workout">Workout</option>
+      <option value="Date">Date</option>
+      <option value="Event">Event</option>
+      <option value="Travel">Travel</option>
+    </select>
+    <button type="submit" class="primary-btn">Add Event</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>Upcoming Events</h2>
+  {% if events %}
+  <ul class="event-list">
+    {% for event_id, event in events %}
+    <li>
+      <strong>{{ event.name }}</strong> – {{ event.date }} at {{ event.time }} ({{ event.style }})
+      <form action="/calendar/delete_event" method="get" style="display:inline">
+        <input type="hidden" name="event_id" value="{{ event_id }}" />
+        <button type="submit" class="delete-btn">×</button>
+      </form>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No events scheduled.</p>
+  {% endif %}
+  <p><a href="/events_outfits">View Outfit Suggestions for Events →</a></p>
+</div>
+
+<div class="nav-links">
+  <a href="/">Home</a> | <a href="/wardrobe">Manage Wardrobe</a>
+</div>
+
+{% endblock %}

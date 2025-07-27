@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Event Outfit Suggestions{% endblock %}
+
+{% block content %}
+<div class="intro">
+  <h1>✨ Outfit Suggestions for Your Events</h1>
+  <p class="tagline">Dress confidently for every occasion on your calendar.</p>
+</div>
+
+{% if events %}
+  {% for event_id, event in events.items() %}
+    <div class="card">
+      <h2>{{ event.name }} – {{ event.date }} at {{ event.time }}</h2>
+      <p><em>Recommended look for a {{ event.style.lower() }} setting:</em></p>
+      {% set outfit = outfits[event_id] %}
+      <ul class="outfit-list">
+        {% if outfit.top %}<li><strong>Top:</strong> {{ outfit.top }}</li>{% endif %}
+        {% if outfit.bottom %}<li><strong>Bottom:</strong> {{ outfit.bottom }}</li>{% endif %}
+        {% if outfit.dress %}<li><strong>Dress:</strong> {{ outfit.dress }}</li>{% endif %}
+        {% if outfit.outer %}<li><strong>Outerwear:</strong> {{ outfit.outer }}</li>{% endif %}
+        {% if outfit.shoes %}<li><strong>Shoes:</strong> {{ outfit.shoes }}</li>{% endif %}
+        {% if outfit.accessories %}<li><strong>Accessories:</strong> {{ outfit.accessories }}</li>{% endif %}
+      </ul>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No events on your calendar. Add some events to see suggestions!</p>
+{% endif %}
+
+<div class="nav-links">
+  <a href="/calendar">Back to Calendar</a> | <a href="/">Home</a>
+</div>
+
+{% endblock %}

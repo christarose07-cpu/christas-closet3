@@ -1,0 +1,132 @@
+{
+  "tops": [
+    {
+      "name": "white blouse",
+      "warmth": "light",
+      "style": "work"
+    },
+    {
+      "name": "pink silk blouse",
+      "warmth": "light",
+      "style": "dressy"
+    },
+    {
+      "name": "grey knit sweater",
+      "warmth": "warm",
+      "style": "casual"
+    },
+    {
+      "name": "black turtleneck",
+      "warmth": "warm",
+      "style": "dressy"
+    },
+    {
+      "name": "graphic tee",
+      "warmth": "light",
+      "style": "casual"
+    }
+  ],
+  "bottoms": [
+    {
+      "name": "blue jeans",
+      "warmth": "medium",
+      "style": "casual"
+    },
+    {
+      "name": "black trousers",
+      "warmth": "medium",
+      "style": "work"
+    },
+    {
+      "name": "pink pencil skirt",
+      "warmth": "light",
+      "style": "work"
+    },
+    {
+      "name": "leggings",
+      "warmth": "light",
+      "style": "workout"
+    }
+  ],
+  "dresses": [
+    {
+      "name": "floral day dress",
+      "warmth": "light",
+      "style": "date"
+    },
+    {
+      "name": "little black dress",
+      "warmth": "light",
+      "style": "dressy"
+    },
+    {
+      "name": "athletic dress",
+      "warmth": "light",
+      "style": "workout"
+    }
+  ],
+  "outerwear": [
+    {
+      "name": "denim jacket",
+      "warmth": "light",
+      "style": "casual"
+    },
+    {
+      "name": "blazer",
+      "warmth": "medium",
+      "style": "work"
+    },
+    {
+      "name": "trench coat",
+      "warmth": "warm",
+      "style": "dressy"
+    }
+  ],
+  "shoes": [
+    {
+      "name": "white sneakers",
+      "style": "casual"
+    },
+    {
+      "name": "black heels",
+      "style": "dressy"
+    },
+    {
+      "name": "ankle boots",
+      "style": "casual"
+    },
+    {
+      "name": "running shoes",
+      "style": "workout"
+    },
+    {
+      "name": "ballet flats",
+      "style": "work"
+    }
+  ],
+  "accessories": [
+    {
+      "name": "gold hoop earrings"
+    },
+    {
+      "name": "pink scarf"
+    },
+    {
+      "name": "black leather belt"
+    },
+    {
+      "name": "statement necklace"
+    },
+    {
+      "name": "crossbody bag"
+    }
+  ],
+  "activewear": [
+    {
+      "name": "sports bra"
+    },
+    {
+      "name": "yoga leggings"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Packing List{% endblock %}
+
+{% block content %}
+<div class="intro">
+  <h1>Packing List Planner</h1>
+  <p class="tagline">Let’s make sure you’ve got everything you need without over‑packing.</p>
+</div>
+
+{% if days and destination and activity %}
+  <div class="card">
+    <h2>Packing list for {{ days }} day{{ 's' if days > 1 else '' }} in {{ destination.title() }}</h2>
+    <p><strong>Activity:</strong> {{ activity }}</p>
+    <ul class="packing-list">
+      {% for item in packing_list %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Daily Outfits</h3>
+    {% for day, outfit in itineraries.items() %}
+      <div class="itinerary-day">
+        <h4>{{ day }}</h4>
+        <ul>
+          {% if outfit.dress %}
+            <li><strong>Dress:</strong> {{ outfit.dress }}</li>
+          {% else %}
+            <li><strong>Top:</strong> {{ outfit.top }}</li>
+            <li><strong>Bottom:</strong> {{ outfit.bottom }}</li>
+          {% endif %}
+          {% if outfit.outer %}
+            <li><strong>Outerwear:</strong> {{ outfit.outer }}</li>
+          {% endif %}
+          <li><strong>Shoes:</strong> {{ outfit.shoes }}</li>
+          <li><strong>Accessories:</strong> {{ outfit.accessories }}</li>
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="history-link">
+    <a href="/">Back Home</a>
+  </div>
+{% else %}
+  <div class="card">
+    <h2>Plan your trip</h2>
+    <form action="/packing" method="get" class="form-section">
+      <label for="days">Number of days</label>
+      <input type="number" id="days" name="days" min="1" max="14" placeholder="e.g. 5" required />
+      <label for="destination">Destination</label>
+      <input type="text" id="destination" name="destination" placeholder="City (e.g. Columbus)" required />
+      <label for="activity">Planned activity</label>
+      <select id="activity" name="activity" required>
+        <option value="Casual">Casual</option>
+        <option value="Work">Work</option>
+        <option value="Workout">Workout</option>
+        <option value="Date">Date</option>
+        <option value="Event">Event</option>
+        <option value="Travel">Travel</option>
+      </select>
+      <button type="submit" class="primary-btn">Generate Packing List</button>
+    </form>
+  </div>
+  <div class="history-link">
+    <a href="/">Back Home</a>
+  </div>
+{% endif %}
+
+{% endblock %}

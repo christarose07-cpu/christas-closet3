@@ -1,0 +1,180 @@
+/* Christa's Closet Stylesheet */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FDE6E0;
+  color: #3a1a2e;
+  margin: 0;
+  padding: 0;
+}
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.intro {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.intro h1 {
+  margin-bottom: 0.25rem;
+  color: #d63384;
+}
+.tagline {
+  color: #5e335a;
+  font-style: italic;
+}
+.weather {
+  font-size: 0.9rem;
+  color: #6b3d5c;
+  margin-top: -0.5rem;
+}
+.card {
+  background-color: #ffffff;
+  border: 1px solid #f6c4d9;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.card h2, .card h3, .card h4 {
+  margin-top: 0;
+  color: #d63384;
+}
+.outfit-list, .packing-list {
+  list-style: none;
+  padding-left: 0;
+}
+.outfit-list li, .packing-list li {
+  margin-bottom: 0.3rem;
+}
+.form-section label {
+  display: block;
+  margin-top: 0.6rem;
+  font-weight: bold;
+}
+.form-section input,
+.form-section select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  border: 1px solid #f6c4d9;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #fdf8f9;
+}
+.primary-btn, .secondary-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 0.8rem;
+}
+.primary-btn {
+  background-color: #e91e63;
+  color: #ffffff;
+}
+.primary-btn:hover {
+  background-color: #d81b60;
+}
+.secondary-btn {
+  background-color: #f8bbd0;
+  color: #3a1a2e;
+  margin-right: 0.5rem;
+}
+.secondary-btn:hover {
+  background-color: #f4a0bf;
+}
+.history-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+.history-link a {
+  color: #e91e63;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Navigation links below each page */
+.nav-links {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.nav-links a {
+  color: #e91e63;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: bold;
+}
+
+/* Wardrobe list styling */
+.wardrobe-list, .event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.wardrobe-list li, .event-list li {
+  margin: 0.3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.delete-btn {
+  background: none;
+  border: none;
+  color: #e91e63;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+.delete-btn:hover {
+  color: #d81b60;
+}
+
+/* Small button variant */
+.small {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.85rem;
+}
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.history-table th, .history-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #f6c4d9;
+}
+.history-table th {
+  text-align: left;
+  color: #d63384;
+  background-color: #fdf2f6;
+}
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+}
+.rating input {
+  display: none;
+}
+.rating label {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+}
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+  color: #FFD700;
+}
+.itinerary-day {
+  margin-bottom: 1rem;
+}
+.itinerary-day h4 {
+  margin-bottom: 0.4rem;
+  color: #d63384;
+}

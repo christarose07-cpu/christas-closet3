@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Wardrobe{% endblock %}
+
+{% block content %}
+<div class="intro">
+  <h1>🎒 Wardrobe Manager</h1>
+  <p class="tagline">Add, edit or remove items to keep your capsule fresh!</p>
+</div>
+
+{% for category, items in wardrobe.items() %}
+  <div class="card">
+    <h2>{{ category|capitalize }}</h2>
+    {% if items %}
+      <ul class="wardrobe-list">
+      {% for item in items %}
+        <li>
+          {{ item.name }}
+          {% if item.warmth %} ({{ item.warmth }}){% endif %}
+          {% if item.style %} – {{ item.style }}{% endif %}
+      <form action="/wardrobe/delete_item" method="get" style="display:inline">
+            <input type="hidden" name="category" value="{{ category }}" />
+            <input type="hidden" name="name" value="{{ item.name }}" />
+            <button type="submit" class="delete-btn">×</button>
+          </form>
+        </li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>No items yet.</p>
+    {% endif %}
+    <div class="add-item-form">
+      <form action="/wardrobe/add_item" method="get">
+        <input type="hidden" name="category" value="{{ category }}" />
+        <input type="text" name="name" placeholder="New {{ category|capitalize }} name" required />
+        {% if category in ["tops", "bottoms", "dresses", "outerwear"] %}
+          <select name="warmth">
+            <option value="">Warmth</option>
+            <option value="light">Light</option>
+            <option value="medium">Medium</option>
+            <option value="warm">Warm</option>
+          </select>
+          <select name="style">
+            <option value="">Style</option>
+            <option value="casual">Casual</option>
+            <option value="work">Work</option>
+            <option value="workout">Workout</option>
+            <option value="date">Date</option>
+            <option value="dressy">Dressy</option>
+          </select>
+        {% elif category == "shoes" %}
+          <select name="style">
+            <option value="">Style</option>
+            <option value="casual">Casual</option>
+            <option value="work">Work</option>
+            <option value="workout">Workout</option>
+            <option value="dressy">Dressy</option>
+          </select>
+        {% endif %}
+        <button type="submit" class="primary-btn small">Add</button>
+      </form>
+    </div>
+  </div>
+{% endfor %}
+
+<div class="nav-links">
+  <a href="/">Home</a>
+</div>
+
+{% endblock %}

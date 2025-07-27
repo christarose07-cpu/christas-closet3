@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FDE6E0" />
+  <link rel="manifest" href="{{ url_for('static', path='manifest.json') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}" />
+  <title>{% block title %}Christa's Closet{% endblock %}</title>
+</head>
+<body>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  {% block scripts %}{% endblock %}
+  <script src="{{ url_for('static', path='script.js') }}"></script>
+</body>
+</html>

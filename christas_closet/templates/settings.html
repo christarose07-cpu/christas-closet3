@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+<div class="intro">
+  <h1>⚙️ Settings</h1>
+  <p class="tagline">Customize your daily reminder and app preferences.</p>
+</div>
+
+<div class="card">
+  <h2>Notification Time</h2>
+  <p>Current reminder time: <strong>{{ settings.notification_time }}</strong> (24‑hr format)</p>
+  <form action="/settings/update" method="get" class="form-section">
+    <label for="nt">Set new time (HH:MM)</label>
+    <input type="time" id="nt" name="notification_time" value="{{ settings.notification_time }}" required />
+    <button type="submit" class="primary-btn">Update</button>
+  </form>
+  <p class="small">Changing this will update when Christa's Closet sends you your cheerful morning notification. Notifications require the app to be installed on your home screen.</p>
+</div>
+
+<div class="nav-links">
+  <a href="/">Home</a> | <a href="/wardrobe">Manage Wardrobe</a> | <a href="/calendar">Manage Events</a>
+</div>
+
+{% endblock %}

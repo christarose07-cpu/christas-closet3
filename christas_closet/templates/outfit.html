@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Today's Outfit{% endblock %}
+
+{% block content %}
+<div class="intro">
+  <h1>{{ message }}</h1>
+  <p class="weather">Current temp: {{ weather.temperature | round(1) }}°F &nbsp;|&nbsp; Chance of precip: {{ weather.precip | int }}%</p>
+</div>
+
+<div class="card">
+  <h2>Suggested Look for {{ activity }}</h2>
+  <ul class="outfit-list">
+    {% if outfit.dress %}
+      <li><strong>Dress:</strong> {{ outfit.dress }}</li>
+    {% else %}
+      <li><strong>Top:</strong> {{ outfit.top }}</li>
+      <li><strong>Bottom:</strong> {{ outfit.bottom }}</li>
+    {% endif %}
+    {% if outfit.outer %}
+      <li><strong>Outerwear:</strong> {{ outfit.outer }}</li>
+    {% endif %}
+    <li><strong>Shoes:</strong> {{ outfit.shoes }}</li>
+    <li><strong>Accessories:</strong> {{ outfit.accessories }}</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>How do you rate this outfit?</h3>
+  <form action="/rate" method="get" class="rating-form">
+    <div class="rating">
+      <!-- radio buttons for rating 5 down to 1 so CSS can handle hover effect -->
+      {% for num in range(5, 0, -1) %}
+        <input type="radio" id="star{{ num }}" name="rating" value="{{ num }}" {% if num == 5 %}checked{% endif %} />
+        <label for="star{{ num }}" title="{{ num }} star{{ 's' if num > 1 else '' }}">&#9733;</label>
+      {% endfor %}
+    </div>
+    <input type="hidden" name="outfit_json" value="{{ outfit_json_b64 }}" />
+    <button type="submit" class="primary-btn">Submit Rating</button>
+  </form>
+  <div class="action-row">
+    <a href="/outfit?activity={{ activity }}&reroll=1" class="secondary-btn">Reroll Outfit</a>
+    <a href="/" class="secondary-btn">Back Home</a>
+    <button type="button" id="share-btn" class="secondary-btn">Share</button>
+  </div>
+</div>
+
+{% endblock %}
